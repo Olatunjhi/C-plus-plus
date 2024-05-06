@@ -2,28 +2,42 @@
 
 using namespace std;
 
+string heightDetector(float heightInFeet)
+{
+	if (heightInFeet > 6)
+	{
+		return ("tall");
+	}
+	else if (heightInFeet < 5)
+	{
+		return ("short");
+	}
+	else
+	{
+		return ("average");
+	}
+}
+
 int main(void)
 {
-	int valueInFeet;
+	float heightInFeet;
 	int performAgain;
+	string result;
 	
 	DoItAgain:
 
 	cout << "Enter your value in feet: ";
-	cin >> valueInFeet;
+	cin >> heightInFeet;
 
-	if (valueInFeet > 6)
+	if (heightInFeet <= 0)
 	{
-		cout << "According to your feet you are a tall person" << endl;
+		cout << "Please enter valid height value in feet: ";
+		cin >> heightInFeet;
 	}
-	else if (valueInFeet < 5)
-	{
-		cout << "According to your feet you are a short person" << endl;
-	}
-	else
-	{
-		cout << "According to your feet you are a average person" << endl;
-	}
+	
+	result = heightDetector(heightInFeet);
+
+	cout << "You are " << result << endl;
 
 	cout << "Enter 1 to check again (or 0 to quit): ";
 	cin >> performAgain;
