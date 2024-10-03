@@ -26,7 +26,7 @@ void collectData()
 	cout << "Enter English score for student1: ";
 	cin >> student1.englishScore;
 
-	cout << "Entet Physics score for student1: ";
+	cout << "Enter Physics score for student1: ";
 	cin >> student1.physicsScore;
 
 	displayData(student1);
