@@ -4,8 +4,8 @@ using namespace std;
 
 int main(void)
 {
-	double result;
-	double input;
+	float result;
+	float input;
 
 	cout << "Welcome to simple subtraction calculator" << endl << endl;
 
