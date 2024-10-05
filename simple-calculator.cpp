@@ -30,18 +30,30 @@ int main()
 	float answer;
 	int numberOfInput = 0;
 
-	cout << "Welcome to simple calculator" << endl;
-	cout << "Note, this calculator only take two values at a time" << endl << endl;
+	cout << "WELCOME TO SIMPLE CALCULATOR" << endl;
+	cout << "NOTE, THIS CALCULATOR ONLY TAKE TWO VALUES AT A TIME" << endl << endl;
 
 	while (numberOfInput < 1000)
 	{
+		performAgain:
 
-		cout << "what operation do you want to perform?" << endl;
+		cout << "WHAT OPERATION DO YOU WANT TO PERFORM?" << endl;
 		cout << "Select 1 for addition" << endl;
 		cout << "select 2 for subtraction" << endl;
 		cout << "select 3 for multiplication" << endl;
 		cout << "select 4 for division" << endl;
+		cout << "0 To off calculator" << endl;
 		cin >> whatTodo;
+
+		if (whatTodo == 0)
+		{
+			break;
+		}
+		else if (whatTodo < 0 || whatTodo > 5)
+		{
+			cout << endl;
+			goto performAgain;
+		}
 
 		cout << "Enter the first value: ";
 		cin >> firstValue;
@@ -73,21 +85,8 @@ int main()
 			cout << "Division of those two values is: " << answer << endl;
 		}
 
-		cout << endl;
-
-		cout << "Enter 0 to off the calculator or 5 to continue: ";
-		cin >> whatTodo;
-
-		if (whatTodo == 0)
-		{
-			break;
-		}
-		else
-		{
-			numberOfInput++;
-		}
-
-
+		cout << endl << endl;
+		numberOfInput++;
 	}
 
 	return (0);
