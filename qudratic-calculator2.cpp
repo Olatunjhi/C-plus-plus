@@ -76,7 +76,7 @@ int main(void)
 	float formulaEqualsTo;
 	char solveFor;
 
-	cout << "This calculator only calculate with this formula :" << "((a * a) - 2c)/b" << endl;
+	cout << "This calculator works for when solving for any qudratic coefficient, only for this formula ((a * a) - 2c) / b" << endl << endl;
 
 	cout << "Your formula equals to what? : ";
 	cin >> formulaEqualsTo;
