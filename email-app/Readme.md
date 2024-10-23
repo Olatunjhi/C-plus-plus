@@ -1,0 +1,1 @@
+# Console email app to check if email address is valid
