@@ -2,6 +2,15 @@
 #include <vector>
 using namespace std;
 
+/**
+ * main - Check the code
+ * @integers: int - vector integer
+ * 
+ * Description: using erase function to erase some element in the vector
+ * 
+ * Return: Always 0.
+ */
+
 int main (void)
 {
     vector <int> integers;
@@ -12,9 +21,9 @@ int main (void)
 
     cout << "BEFORE ERASE HAPPEN" << endl;
 
-    for (int i = 0; i < integers.size(); i++)
+    for (int i = 0; i <= integers.size(); i++)
     {
-        cout << integers.at(i) << " has index number " << i << endl;
+        cout << integers[i] << " has index number " << i << endl;
 
         if (i == 1)
         {
@@ -28,7 +37,8 @@ int main (void)
 
     for (int i = 0; i < integers.size(); i++)
     {
-        cout << integers.at(i) << "now has index number " << i << endl;
+        cout << integers[i] << " now has index number " << i << endl;
     }
+
     return (0);
 }
