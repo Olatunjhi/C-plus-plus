@@ -1,0 +1,1 @@
+# make class a friend another class
