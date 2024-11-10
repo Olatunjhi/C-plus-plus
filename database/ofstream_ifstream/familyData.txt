@@ -1,0 +1,4 @@
+mom 50
+dad 60
+sis 30
+bro 25
