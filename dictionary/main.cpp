@@ -7,34 +7,50 @@ int main (void)
     string userWord;
     string word;
     string meaning;
-    ifstream readData;
-    readData.open("dictionaryBase.txt");
+    string choice;
 
-    if (readData.is_open())
+    ifstream readData("dictionaryBase.txt");
+
+    if (!readData.is_open())
     {
-        performAgain:
-        cout << "Which word you want to know it meaning" << endl;
-        cin >> userWord;
-        cin.ignore();
+        cout << "File could not open for reading" << endl;
+        return (1);
+    }
 
-        while (getline(readData,word,'-'), getline(readData,meaning))
+    do
+    {
+        cout << "What word you want to find the meaning of?" << endl;
+        cin >> userWord;
+
+        readData.clear();
+        readData.seekg(0);
+
+        bool userWordFound = false;
+
+        while(getline(readData,word,'-'), getline(readData,meaning))
         {
             if (userWord == word)
             {
-                cout << "--> " << meaning << "\n";
-                goto performAgain;
-            }
-            else
-            {
-                cout << "please enter another word. The word you enter not yet in my data base" << endl;
-                goto performAgain;
+                userWordFound = true;
+                cout << " --> " << meaning << endl;
+                break;
             }
         }
+
+        if (!userWordFound)
+        {
+            cout << "The word you enter not yet in database. please enter another word" << endl;
+        }
+
+        cout << "Do you want to keep searching for meaning,(yes/no)" << endl;
+        cin >> choice;
+
+        if (choice != "yes")
+        {
+            break;
+        }
     }
-    else
-    {
-        cout << "File could not be for reading" << endl;
-    }
+    while(true);
 
     readData.close();
     
