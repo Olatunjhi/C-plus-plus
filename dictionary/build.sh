@@ -12,8 +12,10 @@ g++ $FLAGS $SOURCE -o $OUTPUT
 if [ $? -eq 0 ]; then
 
     echo "compilation successful; Run ./$OUTPUT"
+
+    ./$OUTPUT
 else
 
     echo "compilation failed"
 
-fi    
+fi
