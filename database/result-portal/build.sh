@@ -1,9 +1,9 @@
 #!/bin/bash
 
-SOURCE= "*.cpp"
-OUTPUT= "run"
+SOURCE="*.cpp"
+OUTPUT="run"
 
-FLAGS= "std=c++17 -Wall"
+FLAGS="-std=c++17 -Wall"
 
 echo "compiling $SOURCE..."
 g++ $FLAGS $SOURCE -o $OUTPUT
