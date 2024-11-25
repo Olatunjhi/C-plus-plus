@@ -64,3 +64,36 @@ int createData()
     
     return (0);
 }
+
+int findData()
+{
+	string studentFirstName;
+	string studentSecondName;
+	string studentThirdName;
+	int mathsScore;
+	int englishScore;
+	int scienceScore;
+
+	ifstream findData("portal.txt");
+
+	if (!findData.is_open())
+	{
+		cout << "Data base could not be open for checking result" << endl;
+
+		return (1);
+	}
+
+	cout << "Enter your first name\n";
+	cin >> studentFirstName;
+
+	cout << "Enter your second name\n";
+	cin >> studentSecondName;
+
+	cout << "Enter your third name\n";
+	cin >> studentThirdName;
+
+	while (findData >> studentFirstNameInDB >> studentSecondNameInDB >> studentThirdNameInDB >> mathsScoreInDB >> englishScoreInDB >> scienceScoreInDB\n)
+	{
+		if (stude
+	}
+}

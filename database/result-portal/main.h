@@ -7,7 +7,7 @@ using namespace std;
 
 
 int createData();
-//void findData();
-//void deleteData();
+int findData();
+//int deleteData();
 
 #endif /* MAIN_H */
