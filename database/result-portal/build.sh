@@ -10,7 +10,7 @@ g++ $FLAGS $SOURCE -o $OUTPUT
 
 if [ $? -eq 0 ]; then
 
-    echo "compilation successful. your is running below this message"
+    echo "compilation successful. your program is running below this message"
     ./$OUTPUT
 
 else

@@ -52,11 +52,11 @@ int createData()
              cin >> scienceScore;
 
               cout << studentFirstName << " " << studentSecondName << " " << studentThirdName << ": " 
-            << mathematicsScore << " in maths" << " " << englishScore << " in english" << " " 
-             << scienceScore << " in science" << endl;
+              << mathematicsScore << " in maths" << " " << englishScore << " in english" << " " 
+              << scienceScore << " in science" << endl;
 
              cout << "\nDo you sure above data you uploded for this particular student is accurate. " << 
-              "Double check before you save it" << endl;
+             "Double check before you save it" << endl;
 
               cout << "\nDo you want to save now?, (yes/no): ";
               cin >> comfirmation;
@@ -80,13 +80,38 @@ int createData()
 
             cout << studentFirstName << " " << studentSecondName << " " << studentThirdName << ": " 
             << mathematicsScore << " in maths" << " " << englishScore << " in english" << " " 
-             << scienceScore << " in science" << endl;
+            << scienceScore << " in science" << endl;
 
         cout << "\nDo you still have student data to upload. (yes/no): ";
         cin >> choice; 
 
         if (choice != "yes" && choice != "Yes")
-        {    
+        {   
+            string studentFirstNameDB;
+            string studentSecondNameDB;
+            string studentThirdNameDB;
+            int mathematicsScoreDB;
+            int englishScoreDB;
+            int scienceScoreDB;
+
+            ifstream checkInput("portal.txt");
+
+            if (!checkInput.is_open())
+            {
+                cout << "Data you uploaded not yet stored" << endl;
+
+                return (3);
+            }
+
+            cout << "\nRECAP OF ALL THE STUDENTS RESULTS YOU UPLOADED AND IT HAS BEING SAVED" << endl;
+
+            while (checkInput >> studentFirstNameDB >> studentSecondNameDB >> studentThirdNameDB >>
+             mathematicsScoreDB >> englishScoreDB >> scienceScoreDB)
+             {
+                 cout << studentFirstNameDB << " " << studentSecondNameDB << " " << studentThirdNameDB << ": " 
+                 << mathematicsScoreDB << " in maths," << " " << englishScoreDB << " in english," << " " 
+                 << scienceScoreDB << " in science" << endl;
+             }
             break;
         }
     }

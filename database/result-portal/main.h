@@ -8,6 +8,5 @@ using namespace std;
 
 int createData();
 int findData();
-//int deleteData();
 
 #endif /* MAIN_H */
