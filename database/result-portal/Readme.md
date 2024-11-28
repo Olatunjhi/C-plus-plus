@@ -1,1 +1,1 @@
-# console result checking portal
+# console mini result checking portal

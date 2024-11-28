@@ -1,11 +1,19 @@
 #include "main.h"
 
+/**
+ * createData - To write data to the file
+ * findData - To read data from the file
+ * 
+ * Return: 0(success), 1(file not open), 2(file empty).
+ */
+
 int createData()
 { 
     string studentFirstName;
     string studentSecondName;
     string studentThirdName;
     string choice;
+    string comfirmation;
     int mathematicsScore;
     int englishScore;
     int scienceScore;
@@ -23,28 +31,52 @@ int createData()
 
     do
     {
-        cout << "Enter student first name: ";
-        cin >> studentFirstName;
+        do
+        {
+             cout << "\nEnter student first name: ";
+             cin >> studentFirstName;
+             
+             cout << "Enter student second name: ";
+             cin >> studentSecondName;
+             
+             cout << "Enter student third name: ";
+             cin >> studentThirdName;
+             
+             cout << "What score has in mathematics: ";
+             cin >> mathematicsScore;
+             
+             cout << "What score has in english: ";
+             cin >> englishScore;
+             
+             cout << "What score has in science: ";
+             cin >> scienceScore;
 
-        cout << "Enter student second name: ";
-        cin >> studentSecondName;
+              cout << studentFirstName << " " << studentSecondName << " " << studentThirdName << ": " 
+            << mathematicsScore << " in maths" << " " << englishScore << " in english" << " " 
+             << scienceScore << " in science" << endl;
 
-        cout << "Enter student third name: ";
-        cin >> studentThirdName;
+             cout << "\nDo you sure above data you uploded for this particular student is accurate. " << 
+              "Double check before you save it" << endl;
 
-        cout << "What score has in mathematics: ";
-        cin >> mathematicsScore;
+              cout << "\nDo you want to save now?, (yes/no): ";
+              cin >> comfirmation;
 
-        cout << "What score has in english: ";
-        cin >> englishScore;
+              if (comfirmation != "no" && comfirmation != "No")
+              {
+                break;
+              }
 
-        cout << "What score has in science: ";
-        cin >> scienceScore;
+              if (comfirmation == "no" || comfirmation == "No")
+              {
+                cout << "\nRe-enter that student data and make sure it accurate this time" << endl;
+              }
+        }
+        while(true);
 
         dataBase << studentFirstName << " " << studentSecondName << " " << studentThirdName << 
         " " << mathematicsScore << " " << englishScore << " " << scienceScore << endl;
 
-            cout << "RECENT INPUT DATA PREVIEW" << endl << endl;
+            cout << "\nRECENT INPUT DATA PREVIEW" << endl << endl;
 
             cout << studentFirstName << " " << studentSecondName << " " << studentThirdName << ": " 
             << mathematicsScore << " in maths" << " " << englishScore << " in english" << " " 
@@ -69,10 +101,14 @@ int findData()
 {
 	string studentFirstName;
 	string studentSecondName;
-	string studentThirdName;
-	int mathsScore;
-	int englishScore;
-	int scienceScore;
+	string studentThirdName;	
+    string studentFirstNameInDB;
+    string studentSecondNameInDB;
+    string studentThirdNameInDB;
+    int mathsScoreInDB;
+    int englishScoreInDB;
+    int scienceScoreInDB;
+    bool studentDataFound = false;
 
 	ifstream findData("portal.txt");
 
@@ -83,6 +119,19 @@ int findData()
 		return (1);
 	}
 
+    findData.seekg(0, ios::end);
+
+    cout << "\nData base byte: " << findData.tellg() << endl;
+    
+    if (findData.tellg() == 0)
+    {
+        cout << "\nLecturer yet to uploaded result into portal, come back later to check" <<endl;
+
+        return (2);
+    }
+
+    findData.seekg(0, ios::beg);
+
 	cout << "Enter your first name\n";
 	cin >> studentFirstName;
 
@@ -92,8 +141,27 @@ int findData()
 	cout << "Enter your third name\n";
 	cin >> studentThirdName;
 
-	while (findData >> studentFirstNameInDB >> studentSecondNameInDB >> studentThirdNameInDB >> mathsScoreInDB >> englishScoreInDB >> scienceScoreInDB\n)
+	while (findData >> studentFirstNameInDB >> studentSecondNameInDB >> studentThirdNameInDB >> 
+    mathsScoreInDB >> englishScoreInDB >> scienceScoreInDB)
 	{
-		if (stude
+		if (studentFirstName == studentFirstNameInDB && studentSecondName == studentSecondNameInDB && 
+        studentThirdName == studentThirdNameInDB)
+        {
+            studentDataFound = true;
+            cout << "\nmaths: " << mathsScoreInDB << endl;
+            cout << "english: " << englishScoreInDB << endl;
+            cout << "science: " << scienceScoreInDB << endl;
+
+            break;
+        }
 	}
+
+    if (!studentDataFound)
+    {
+        cout << "\nYour data not availabe due to some reason. Go meet your lecturer for more clarity\n";
+    }
+
+    findData.close();
+
+    return (0);
 }
