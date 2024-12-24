@@ -1,0 +1,3 @@
+/home/idowu123/C-plus-plus/sfml-projects/build/CMakeFiles/SFMLTest.dir
+/home/idowu123/C-plus-plus/sfml-projects/build/CMakeFiles/edit_cache.dir
+/home/idowu123/C-plus-plus/sfml-projects/build/CMakeFiles/rebuild_cache.dir
