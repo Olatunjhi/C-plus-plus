@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/createWindow.dir/main.cpp.o -o createWindow  /usr/lib/x86_64-linux-gnu/libsfml-graphics.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-window.so.2.5.1 /usr/lib/x86_64-linux-gnu/libsfml-system.so.2.5.1 
