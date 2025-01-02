@@ -8,6 +8,9 @@ int main (void)
     //setting up window
     RenderWindow window(VideoMode(1000,450),"RectangleShape & Texture",Style::Close|Style::Resize|Style::Titlebar);
 
+    //declare Event class
+    Event event;
+
     //checking if image loaded successfully
     Texture archerImageTexture;
     if (!archerImageTexture.loadFromFile("Archer.jpg"))
@@ -37,7 +40,6 @@ int main (void)
     //creatw window while maintain it open with loop
     while (window.isOpen())
     {
-        Event event;
 
         //linking event to window
         while (window.pollEvent(event))
@@ -46,6 +48,12 @@ int main (void)
             {
                 window.close();
             }
+        }
+
+        //setting up mouse input
+        if (Mouse::isButtonPressed(Mouse::Right))
+        {
+            archerImage.setPosition(Vector2f(Mouse::getPosition(window).x, Mouse::getPosition(window).y));
         }
 
         //setting R to rotate the texture
