@@ -1,0 +1,3 @@
+/home/idowu123/C-plus-plus/sfml-projects/create_text_image2/build/CMakeFiles/createTextAndImage2.dir
+/home/idowu123/C-plus-plus/sfml-projects/create_text_image2/build/CMakeFiles/edit_cache.dir
+/home/idowu123/C-plus-plus/sfml-projects/create_text_image2/build/CMakeFiles/rebuild_cache.dir
