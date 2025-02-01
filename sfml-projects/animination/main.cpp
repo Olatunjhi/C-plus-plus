@@ -8,6 +8,8 @@ float rectTop = 0;
 float timer = 0;
 float maxTimer = 20;
 float multiplier = 81;
+float xVel = 0;
+float yVel = 0;
 
 int main (void)
 {
@@ -53,7 +55,9 @@ int main (void)
 
         deltaTime = gameClock.restart().asSeconds();
 
-        keyboards(deltaTime,boxMan); 
+        keyboards(deltaTime,boxMan);
+        boxMan.move(xVel,yVel);
+        collisionDitection(boxMan); 
 
         rect.width = rectWidth;
         rect.height = rectHeight;

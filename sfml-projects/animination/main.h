@@ -14,8 +14,11 @@ extern float rectTop;
 extern float timer;
 extern float maxTimer;
 extern float multiplier;
+extern float xVel;
+extern float yVel;
 
 void animinatePlayer(string activity, float activityDeltaTime);
 void keyboards(float keyboardDeltaTime, RectangleShape &boxMan);
+void collisionDitection(RectangleShape &boxMan);
 
 #endif /* MAIN_H*/

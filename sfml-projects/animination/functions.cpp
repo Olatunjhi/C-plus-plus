@@ -35,32 +35,66 @@ void animinatePlayer(string activity, float activityDeltaTime)
 
 void keyboards(float keyboardDeltaTime, RectangleShape &boxMan)
 {
+    if (!Keyboard::isKeyPressed(Keyboard::Up) && !Keyboard::isKeyPressed(Keyboard::Down))
+    {
+        yVel = 0;
+    }
+    
     if (!Keyboard::isKeyPressed(Keyboard::Right) && !Keyboard::isKeyPressed(Keyboard::Left))
     {
+        xVel = 0;
         animinatePlayer("idle", keyboardDeltaTime);
     }
 
     if (Keyboard::isKeyPressed(Keyboard::Right))
     {
         animinatePlayer("walking", keyboardDeltaTime);
-        boxMan.move(Vector2f(4 * multiplier * keyboardDeltaTime,0));
+        xVel = 4 * multiplier * keyboardDeltaTime;
         boxMan.setScale(1,1);
     }
 
     if (Keyboard::isKeyPressed(Keyboard::Left))
     {
         animinatePlayer("walking", keyboardDeltaTime);
-        boxMan.move(Vector2f(-4 * multiplier * keyboardDeltaTime,0));
+        xVel = -4 * multiplier * keyboardDeltaTime;
         boxMan.setScale(-1,1);
     }
 
     if (Keyboard::isKeyPressed(Keyboard::Up))
     {
-        boxMan.move(Vector2f(0,-4 * multiplier * keyboardDeltaTime));
+        yVel = -4 * multiplier * keyboardDeltaTime;
     }
         
     if (Keyboard::isKeyPressed(Keyboard::Down))
     {
-        boxMan.move(Vector2f(0,4 * multiplier * keyboardDeltaTime));
+       yVel = 4 * multiplier * keyboardDeltaTime;
+    }
+}
+
+void collisionDitection(RectangleShape &boxMan)
+{
+    float leftEdge = boxMan.getPosition().x - boxMan.getSize().x / 2;
+    float rightEdge = boxMan.getPosition().x + boxMan.getSize().x /2;
+    float topEdge = boxMan.getPosition().y - ((boxMan.getSize().y / 2) - 20);
+    float bottomEdge = boxMan.getPosition().y + boxMan.getSize().y / 2;
+
+    if (leftEdge < 0)
+    {
+        boxMan.setPosition(Vector2f(boxMan.getSize().x / 2,boxMan.getPosition().y));
+    }
+
+    if (rightEdge > 1000)
+    {
+        boxMan.setPosition(Vector2f(1000 - boxMan.getSize().x / 2,boxMan.getPosition().y));
+    }
+
+    if (topEdge < 0)
+    {
+        boxMan.setPosition(Vector2f(boxMan.getPosition().x,(boxMan.getSize().y / 2) - 20));
+    }
+
+    if (bottomEdge > 450)
+    {
+        boxMan.setPosition(Vector2f(boxMan.getPosition().x,450 - boxMan.getSize().y / 2));
     }
 }
